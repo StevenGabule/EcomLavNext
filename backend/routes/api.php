@@ -19,6 +19,9 @@ Route::post('register', 'AuthController@register');
 
 Route::group(['middleware' => 'auth:api'], function() {
   Route::apiResource('users', 'UserController');
+  Route::get('me', 'ProfileController@me');
+  Route::put('users/update-info', 'ProfileController@update_info');
+  Route::put('users/change-password', 'ProfileController@update_password');
 });
 
 
